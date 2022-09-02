@@ -1,6 +1,5 @@
 import openpyxl
-from collections import OrderedDict
-
+from collections import  OrderedDict
 book = openpyxl.open('files/sample.xlsm', read_only=True)  # если открываем только на чтение
 
 sheet = book.active
@@ -10,10 +9,9 @@ makers = []
 for i in sheet['A1':'A765']:
     makers.append(i[0].value)
 
-makers_dict = dict.fromkeys(makers, [])
+makers_dict = dict.fromkeys(makers,[])
 
-
-# makers.append(i.values)
+    #makers.append(i.values)
 # #указание ячеек по индесам первый столбец второй строка.
 # #причем нулевого столбца нет, начало с первого
 # # sheet.max_row получить количество строк листа
@@ -47,18 +45,17 @@ def get_values_from_ex(num_row):
     sheet = book.active
     start = f'A{num_row}'
     finish = f'W{num_row}'
-    COLLUM_NAMES = [x.value for x in sheet['A1':'W1'][0]]  # 0 потому что это срез, а я беру срез в одну строку
+    COLLUM_NAMES = [x.value for x in sheet['A1':'W1'][0]] # 0 потому что это срез, а я беру срез в одну строку
     cells_values = [x.value for x in sheet[start:finish][0]]
     result = dict(zip(COLLUM_NAMES, cells_values))
-    # result = OrderedDict(zip(COLLUM_NAMES,cells_values))
+    #result = OrderedDict(zip(COLLUM_NAMES,cells_values))
     return result
 
-
-# print(get_values_from_ex(2))
-# print(get_values_from_ex(765)['Производитель'])
+#print(get_values_from_ex(136))
+#print(get_values_from_ex(765)['Производитель'])
 # tmp = [x for x in get_values_from_ex(2).values()]
 # print(tmp)
 
-
-dd = [(x,) for x in makers_dict.keys()]
-# print(dd)
+#значения производителей в подходящем формате
+dd= [(x,) for x in makers_dict.keys()]
+#print(dd)

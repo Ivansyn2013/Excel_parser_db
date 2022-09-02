@@ -69,8 +69,8 @@ try:
                 print(req)
                 cursor.execute(req, values[1:])
                 print("Record Updated successfully ")
-                print('*'*10)
                 print(i)
+                print('*'*10)
 
             connection.commit()
             cursor.close()

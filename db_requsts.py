@@ -57,14 +57,10 @@ def sql_intro_req(table_name, fields, maker_name):
     '''take  fields, return srt with sql req format key : val - filed : values %s'''
 
     placeholders = ", ".join(["%s"] * (len(fields[1:])))
-
-    # set_and_push = ''''INSERT INTO {}(maker_id) SELECT id FROM maker WHERE maker_name = {}'''.format(table_name,
-    #                                                                                                  maker_name)
-
     sql = "INSERT INTO {} {} SELECT id, {} FROM maker WHERE maker_name = '{}'".format(table_name,
                                                                                       str(fields).replace("'", ''),
                                                                                       placeholders, maker_name)
-    # print(sql)
+
     return sql
 
 # print(get_fields('med_product_db','introducer'))
