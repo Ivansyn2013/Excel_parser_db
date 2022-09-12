@@ -1,6 +1,6 @@
 import openpyxl
 from collections import  OrderedDict
-book = openpyxl.open('files/sample.xlsm', read_only=True)  # если открываем только на чтение
+book = openpyxl.open('ex_data.xlsm', read_only=True)  # если открываем только на чтение
 
 sheet = book.active
 # print(sheet.max_row)
@@ -39,9 +39,9 @@ makers_dict = dict.fromkeys(makers,[])
 # print(sheet[1][0].value)
 
 def get_values_from_ex(num_row):
-    '''take vakues of cells from excel file return it in OrderDict'''
+    '''take values of cells from excel file return it in OrderDict'''
 
-    book = openpyxl.open('files/sample.xlsm', read_only=False, keep_vba=True)  # если открываем только на чтение
+    book = openpyxl.open('ex_data.xlsm', read_only=False, keep_vba=True)  # если открываем только на чтение
     sheet = book.active
     start = f'A{num_row}'
     finish = f'W{num_row}'

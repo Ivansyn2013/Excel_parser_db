@@ -45,8 +45,8 @@ intro_collum_names = []
 
 try:
     with connect(
-        host='192.168.0.110',
-        port='3306',
+        host='localhost',
+        port='3333',
         user='user1',
         password='123',
         database='med_product_db',
@@ -56,9 +56,10 @@ try:
 
         with connection.cursor() as cursor:
             fields = get_fields('med_product_db','introducer')[3:]
-            for i in range (2,766):
+            for i in range (2,50):
                 values = tuple(x for x in get_values_from_ex(i).values())
-                #print(fields)
+                print(fields)
+                print(values[1:])
                 #print(str(fields).replace("'",''))
                 req = sql_intro_req('introducer', fields, values[0])
                 #print(values[1:])

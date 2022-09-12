@@ -35,8 +35,8 @@ def get_fields(db_name, table_name):
     result = []
     try:
         with connect(
-                host='192.168.0.110',
-                port='3306',  # может принимать объект в виде словаря
+                host='localhost',
+                port='3333',  # может принимать объект в виде словаря
                 user='user1',
                 password='123',
                 database=db_name,
